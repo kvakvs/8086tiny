@@ -5,6 +5,6 @@ if [ -f hd.img ]
 then
     ./8086tiny bios fd.img hd.img
 else
-    ./8086tiny bios fd.img
+    cmake-build-debug/8086tiny bios fd.img
 fi
 stty cooked echo
