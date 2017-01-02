@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(SOURCE_FILES
         8086tiny.cpp
-        )
+        8086tiny.h)
 
 link_libraries(SDL)
 add_executable(8086tiny ${SOURCE_FILES})
@@ -13,11 +13,11 @@ add_executable(8086tiny ${SOURCE_FILES})
 include(PVS-Studio.cmake)
 pvs_studio_add_target(TARGET analyze ALL
         FORMAT tasklist
-        #PREPROCESSOR gcc
-        LOG "PVS-report.tasks"
+        PREPROCESSOR gcc
+        LOG "PVS-report.plog"
         ANALYZE 8086tiny
         #LICENSE "PVS-Studio.lic"
-        #CXX_FLAGS ${PREPROCESSOR_ADDITIONAL_FLAGS}
-        #C_FLAGS ${PREPROCESSOR_ADDITIONAL_FLAGS}
+        CXX_FLAGS ${PREPROCESSOR_ADDITIONAL_FLAGS}
+        C_FLAGS ${PREPROCESSOR_ADDITIONAL_FLAGS}
         #CONFIG "PVS-Studio.cfg"
         )
